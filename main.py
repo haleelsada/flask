@@ -1,9 +1,7 @@
 from flask import Flask, request, jsonify
 import googlemaps, os
 from datetime import datetime
-from flask_cors import CORS, cross_origin
-a='AIzaSyC9o-'
-b='L5dJJyxq3re6XBhaGjNuX'
+a='AIzaSyC9o-'b='L5dJJyxq3re6XBhaGjNuX'
 c='_p0eaYr0'
 gmaps = googlemaps.Client(key=a+b+c)
 
@@ -129,8 +127,8 @@ def get_rank(coordinates,type_,size):
 #{coordinates: [{latitude: 37.7749, longitude: -122.4194 },{ latitude: 40.7128, longitude: -74.0060 },],type_: 'restaurant',size=['medium']}
 
 app = Flask(__name__)
-cors = CORS(app)
-app.config['CORS_HEADERS'] = 'Content-Type'
+#cors = CORS(app)
+#app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route('/test',methods=['POST','GET'])
 def hello_world():
