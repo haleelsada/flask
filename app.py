@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from transformers import pipeline
+
 app = Flask(__name__)
 #cors = CORS(app)
 #app.config['CORS_HEADERS'] = 'Content-Type'
@@ -15,9 +16,6 @@ def sentanalase():
 	print(model_outputs[0])
 	
 	return jsonify({'result':result})
-
-app = Flask(__name__)
-
 
 @app.route('/')
 def index():
