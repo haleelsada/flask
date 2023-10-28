@@ -44,7 +44,7 @@ def emotion(text):
 		if emo[i]>1:
 			emo[i]=emo[i]-2*(emo[i]-1)
 	emo[-1]=emo[-1]*0.7
-	return {'happiness':emo[0],'saddness':emo[1],'anger':emo[2],'love':emo[3],'neutral':emo[4]}
+	return {'happiness':emo[0],'saddness':emo[1],'anger':emo[2],'love':emo[3],'nuetral':emo[4]}
 app = Flask(__name__)
 
 @app.route('/')
