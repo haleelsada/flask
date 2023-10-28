@@ -33,8 +33,18 @@ with open(vect, 'rb') as file:
 def emotion(text):
 	input_processed = ' '.join([token.lemma_ for token in nlp(text) if not token.is_stop])
 	input_vectorized = vectorizer.transform([input_processed])
-	return {'happiness':happiness.predict(input_vectorized)[0],'saddness':saddness.predict(input_vectorized)[0],'anger':anger.predict(input_vectorized)[0],'love':love.predict(input_vectorized)[0],'nuetral':nuetral.predict(input_vectorized)[0]}
-	
+	emo=[happiness.predict(input_vectorized)[0], saddness.predict(input_vectorized)[0], anger.predict(input_vectorized)[0], love.predict(input_vectorized)[0], nuetral.predict(input_vectorized)[0]]
+	m=max(emo)
+	mi=emo.index(max(emo))
+	if m>0 and m<1:
+		m=m+(1-m)*0.4
+	for i in range(5):
+		if emo[i]<0:
+			emo[i]=emo[i]+2*(0-emo[i])
+		if emo[i]>1:
+			emo[i]=emo[i]-2*(emo[i]-1)
+	emo[-1]=emo[-1]*0.7
+	return {'happiness':emo[0],'saddness':emo[1],'anger':emo[2],'love':emo[3],'neutral':emo[4]}
 app = Flask(__name__)
 
 @app.route('/')
