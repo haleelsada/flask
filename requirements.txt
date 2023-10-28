@@ -2,3 +2,4 @@ Flask>=2.2.2
 gunicorn==19.7.1
 scikit-learn
 spacy
+typing_extensions==4.7.1
