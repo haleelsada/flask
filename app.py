@@ -43,11 +43,10 @@ def hello_world():
 
 @app.route('/test',methods=['GET', 'POST'])
 def main():
-    #if request.method == 'POST':
-    #    text = request.form['input']
-    #    return emotion(text)
-    
-    return emotion('I am feeling low')
+    if request.method == 'POST':
+        text = request.form['input']
+        return emotion(text)
+    return 'provide query'
     
 if __name__ == '__main__':
     
