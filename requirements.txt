@@ -1,2 +1,4 @@
 Flask>=2.2.2
 gunicorn==19.7.1
+scikit-learn==1.2.2
+spacy
