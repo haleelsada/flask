@@ -1,5 +1,4 @@
 from flask import Flask, request, jsonify
-from transformers import pipeline
 
 app = Flask(__name__)
 #cors = CORS(app)
@@ -8,14 +7,9 @@ app = Flask(__name__)
 @app.route('/test',methods=['POST','GET'])
 def sentanalase():
 	print('api called')
-	classifier = pipeline(task="text-classification", model="SamLowe/roberta-base-go_emotions", top_k=5)
-
-	sentences = ["Today was a rough day from the start. I woke up late, missed my bus"]
 	
-	model_outputs = classifier(sentences)
-	print(model_outputs[0])
 	
-	return jsonify({'result':result})
+	return jsonify({'result':'result'})
 
 @app.route('/')
 def index():
